@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Context Menu</title>
+    <style>
+      /* ant design */
+      html,
+      body {
+        height: 100%;
+      }
+
+      .custom-context-menu {
+        position: absolute;
+        box-sizing: border-box;
+        min-height: 100px;
+        min-width: 200px;
+        background-color: #ffff;
+        box-shadow: 0 0 1px 2px lightgray;
+      }
+
+      .custom-context-menu ul {
+        list-style: none;
+        padding: 0;
+        background-color: transparent;
+      }
+
+      .custom-context-menu li {
+        padding: 3px 5px;
+        cursor: pointer;
+      }
+
+      .custom-context-menu li:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 정적으로 생성한 Context Menu Element -->
+    <div id="sh_context_menu" class="custom-context-menu" style="display: none">
+      <ul>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      // Context Menu 생성 및 노출시키는 이벤트 핸들러
+      function handleCreateContextMenu(event) {
+        // 기본 Context Menu가 나오지 않게 차단
+        event.preventDefault();
+
+        const ctxMenu = document.getElementById("sh_context_menu");
+
+        // 노출 설정
+        ctxMenu.style.display = "block";
+
+        // 위치 설정
+        ctxMenu.style.top = event.pageY + "px";
+        ctxMenu.style.left = event.pageX + "px";
+      }
+
+      // Context Menu 제거 및 숨기는 이벤트 핸들러
+
+      function handleClearContextMenu(event) {
+        const ctxMenu = document.getElementById("sh_context_menu");
+
+        //노출 초기화
+        ctxMenu.style.display = "none";
+        ctxMenu.style.top = null;
+        ctxMenu.style.left = null;
+      }
+
+      // 이벤트 바인딩
+      // document에서 마우스 우클릭시 Context Menu가 노출되는 이벤트 바인딩
+      document.addEventListener("contextmenu", handleCreateContextMenu, false);
+      // document에서 마우스 좌클릭시 Context Menu가 숨겨지는 이벤트 바인딩
+      document.addEventListener("click", handleClearContextMenu, false);
+    </script>
+  </body>
+</html>

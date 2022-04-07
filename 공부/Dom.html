@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <div id="first">첫번쨰</div>
+    <div id="second">두번쨰</div>
+    <div name="second">두번쨰</div>
+
+    <div>hello</div>
+    <div>world</div>
+    <span class="card">안녕하세용</span>
+    <span class="card">김세현입니당</span>
+    <script>
+      // 엘리먼트 가져오기
+      // getElementById()
+      // getElementByName()
+      // getElementByClassName()
+      // getElementByTagName()
+
+      // 엘리먼트에 원하는 텍스트 추가하기
+      // innerHTML
+      // innerText
+
+      // 엘리먼트 생성, 삭제, 수정하기
+      // createElement()
+      // addendChild()
+      // removeChild()
+    </script>
+
+    <script>
+      // id속성으로 가져오기
+      const element1 = document.getElementById("first");
+      // name속성으로 가져오기
+      const element2 = document.getElemnetByName("second");
+
+      // HTML Tag로 가져오기
+      const elements1 = document.getElementsByTagName("div");
+      // class명으로 가져오기
+      const elements2 = document.getElementsByClassName("card");
+      //특이한점은 TagName()과 ClassName()메서드를 사용한다면 HTML Element객체 배열을 가져오므로
+      //배열 접근을 해야한다.
+
+      console.log(elements1[0]);
+      console.log(elements2[1]);
+    </script>
+
+    <script>
+      // 엘리먼트 원하는 텍스트 쓰고 읽기
+      // HTML Element Text 읽기 : textContent
+      // HTML Element Text 추가하기 : innerHTML
+      const first = document.getElementById("first");
+      const second = document.getElementById("second");
+
+      console.log(first.textContent); //첫번쨰
+
+      second.innerHTML = second.textContent + "만나서 반가워용";
+
+      console.log(first.textcontent); //첫번째
+      console.log(second.textContent); //두번째 만나서 반가워용
+    </script>
+  </body>
+</html>

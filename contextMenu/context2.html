@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/3cc7440731.js" crossorigin="anonymous"></script>
+    <!-- fontawesome Version5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <!-- jQuery -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery-migrate-1.4.1.min.js"></script>
+    <style>
+      body {
+        margin: 0px;
+        /* font-family: sans-serif; */
+      }
+      #context-menu {
+        position: fixed;
+        z-index: 10000;
+        width: 150px;
+        background: #1b1a1a;
+        transform: scale(0);
+        transform-origin: top left;
+      }
+
+      #context-menu.active {
+        transform: scale(1);
+        transition: transform 200ms ease-in-out;
+      }
+
+      #context-menu .item {
+        padding: 8px 10px;
+        font-size: 15px;
+        color: #eee;
+      }
+
+      #context-menu .item:hover {
+        background: #555;
+      }
+
+      #context-menu .item i {
+        display: inline-block;
+        margin-right: 5px;
+
+        /* 어썸 */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f004";
+
+        /* 폰트어썸 font-weight 규칙 */
+        /* solid > 900
+        Regular, Brands > 400
+        Light > 300 */
+      }
+      #context-menu hr {
+        margin: 2px 0px;
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="context-menu">
+      <div class="item"><i class="far fa-grin-alt"></i> Cut</div>
+
+      <div class="item"><i class="fa-thin fa-file-import"></i> Cut</div>
+
+      <div class="item"><i class="fa-thin fa-copy"></i> Copy</div>
+
+      <div class="item"><i class="fa-solid fa-star-sharp"></i> Cut</div>
+      <hr />
+      <div class="item">
+        <i class="fab fa-facebook-square"></i>
+      </div>
+
+      <div class="item">
+        <i class="fab fa-facebook-square"></i>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("contextmenu", function (event) {
+        event.preventDefault();
+        var contextElement = document.getElementById("context-menu");
+        contextElement.style.top = event.offsetY + "px";
+        contextElement.style.left = event.offsetX + "px";
+        contextElement.classList.add("active");
+      });
+
+      window.addEventListener("click", function () {
+        document.getElementById("context-menu").classList.remove("active");
+      });
+
+      // $(document).ready(function(){
+      //     $('#editor').contextMenu('context-menu',{
+
+      //     })
+      // })
+    </script>
+  </body>
+</html>
