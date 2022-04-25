@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Person {
+        constructor ({name, age}){
+            this.name = name;
+            this.age = age;
+        }
+        //메소드
+        introduce(){
+            return `안녕, 내 이름은 ${this.name}이야`
+        }
+    }
+
+    const person = new Person({name: '김세현', age: 33});
+
+</script>
+<script>
+    // function add(x,y) { //x와 y 매개변수
+    //     const result = x + y; 
+    //     return result; //반환값(return value)
+    // }
+    
+    //1. 함수 정의
+    function add(x,y){
+        return x + y; 
+    }
+    //2. 함수 호출
+    const result = add(2,3);
+
+</script>
+</html>

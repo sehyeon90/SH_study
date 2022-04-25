@@ -102,9 +102,9 @@ body {
   font-weight: bold;
 }
 
-#main_lnb > ul > li > a:hover {
+/* #main_lnb > ul > li > a:hover {
   line-height: 1.2;
-}
+} */
 
 #content {
   background: white;
